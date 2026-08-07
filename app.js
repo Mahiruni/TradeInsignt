@@ -2,34 +2,42 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
-  $('#year').textContent = new Date().getFullYear();
+  const year = $('#year');
+  if (year) year.textContent = new Date().getFullYear();
 
   const menuToggle = $('.menu-toggle');
   const siteNav = $('.site-nav');
   const closeMenu = () => {
+    if (!menuToggle || !siteNav) return;
     menuToggle.setAttribute('aria-expanded', 'false');
     menuToggle.setAttribute('aria-label', 'Open navigation');
     siteNav.classList.remove('is-open');
     document.body.classList.remove('menu-open');
   };
-  menuToggle.addEventListener('click', () => {
-    const opening = menuToggle.getAttribute('aria-expanded') !== 'true';
-    menuToggle.setAttribute('aria-expanded', String(opening));
-    menuToggle.setAttribute('aria-label', opening ? 'Close navigation' : 'Open navigation');
-    siteNav.classList.toggle('is-open', opening);
-    document.body.classList.toggle('menu-open', opening);
-  });
-  $$('.site-nav a').forEach(link => link.addEventListener('click', closeMenu));
-
-  const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
-      }
+  if (menuToggle && siteNav) {
+    menuToggle.addEventListener('click', () => {
+      const opening = menuToggle.getAttribute('aria-expanded') !== 'true';
+      menuToggle.setAttribute('aria-expanded', String(opening));
+      menuToggle.setAttribute('aria-label', opening ? 'Close navigation' : 'Open navigation');
+      siteNav.classList.toggle('is-open', opening);
+      document.body.classList.toggle('menu-open', opening);
     });
-  }, { threshold: 0.08 });
-  $$('.reveal').forEach(element => revealObserver.observe(element));
+    $$('.site-nav a').forEach(link => link.addEventListener('click', closeMenu));
+  }
+
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px' });
+    $$('.reveal').forEach(element => revealObserver.observe(element));
+  } else {
+    $$('.reveal').forEach(element => element.classList.add('is-visible'));
+  }
 
   const filterButtons = $$('[data-filter]');
   const principles = $$('.principle[data-category]');
@@ -43,176 +51,178 @@
     });
   }));
 
-  const stateData = {
+  const states = {
     fear: {
       kicker: 'STATE 01 · THREAT RESPONSE',
       title: 'Fear makes certainty feel more important than process.',
       description: 'The mind tries to remove uncertainty by moving stops, closing early, skipping valid entries or refusing a planned loss.',
       voice: '“Maybe I should wait for one more confirmation.”',
       rule: 'If the setup is valid and risk is accepted, execute without adding conditions.',
-      symbol: '↓',
-      pattern: [38, 67, 93, 54, 70, 86, 76]
+      symbol: '↓'
     },
     greed: {
-      kicker: 'STATE 02 · REWARD BLINDNESS',
-      title: 'Greed makes potential reward louder than existing risk.',
-      description: 'Attention narrows around what can be won. Position size grows, entries multiply and invalidation starts to feel inconvenient.',
-      voice: '“This looks too good to risk only one percent.”',
-      rule: 'Position size is decided before opportunity feels exciting—and never changed afterward.',
-      symbol: '↑',
-      pattern: [36, 52, 70, 91, 83, 97, 61]
+      kicker: 'STATE 02 · REWARD CAPTURE',
+      title: 'Greed makes the next opportunity feel like the last one.',
+      description: 'Attention narrows around possible reward. Position size grows, invalidation becomes negotiable and patience disappears.',
+      voice: '“This one looks too good to miss. I should size up.”',
+      rule: 'Use the same risk model regardless of how attractive the setup feels.',
+      symbol: '↑'
     },
     revenge: {
       kicker: 'STATE 03 · IDENTITY REPAIR',
-      title: 'Revenge trading tries to repair the self through the market.',
-      description: 'A loss becomes personal. The next trade is recruited to erase pain, restore status and prove that the previous outcome was wrong.',
-      voice: '“I just need one clean trade to get it back.”',
-      rule: 'After a rule-breaking loss, leave the platform. Review first; the next trade is not treatment.',
-      symbol: '↯',
-      pattern: [84, 61, 39, 91, 48, 88, 34]
+      title: 'Revenge trading is an attempt to repair identity with money.',
+      description: 'After a loss, the mind tries to restore control quickly. The next trade becomes emotional compensation rather than a planned decision.',
+      voice: '“I only need one good trade to get it back.”',
+      rule: 'After a rule-breaking loss, leave the screen and complete a written review before returning.',
+      symbol: '↯'
     },
     euphoria: {
       kicker: 'STATE 04 · CONTROL ILLUSION',
-      title: 'Euphoria confuses a winning streak with mastery over outcome.',
-      description: 'Success releases energy and certainty. The trader begins to feel exceptional, increases frequency or abandons the risk model.',
+      title: 'A large win can make risk feel smaller than it is.',
+      description: 'Dopamine and confidence rise together. The trader confuses a favourable outcome with increased control over probability.',
       voice: '“I am seeing the market perfectly today.”',
-      rule: 'After a large win, return to baseline before another order. Winning does not change the plan.',
-      symbol: '✦',
-      pattern: [33, 46, 57, 72, 89, 96, 65]
+      rule: 'After a large win, return to baseline risk or end the session.',
+      symbol: '✦'
     }
   };
 
-  const renderState = key => {
-    const state = stateData[key];
-    $('#state-kicker').textContent = state.kicker;
-    $('#state-title').textContent = state.title;
-    $('#state-description').textContent = state.description;
-    $('#state-voice').textContent = state.voice;
-    $('#state-rule').textContent = state.rule;
-    $('#state-symbol').textContent = state.symbol;
-    $$('#state-candles i').forEach((candle, index) => {
-      candle.style.height = `${state.pattern[index]}%`;
-      candle.style.background = index < 3 ? 'var(--red)' : 'var(--green)';
-    });
-  };
-  $$('.state-tabs button').forEach(button => button.addEventListener('click', () => {
-    $$('.state-tabs button').forEach(item => {
+  const stateTabs = $$('[data-state]');
+  stateTabs.forEach(tab => tab.addEventListener('click', () => {
+    const data = states[tab.dataset.state];
+    if (!data) return;
+    stateTabs.forEach(item => {
       item.classList.remove('is-active');
       item.setAttribute('aria-selected', 'false');
     });
-    button.classList.add('is-active');
-    button.setAttribute('aria-selected', 'true');
-    renderState(button.dataset.state);
+    tab.classList.add('is-active');
+    tab.setAttribute('aria-selected', 'true');
+    $('#state-kicker').textContent = data.kicker;
+    $('#state-title').textContent = data.title;
+    $('#state-description').textContent = data.description;
+    $('#state-voice').textContent = data.voice;
+    $('#state-rule').textContent = data.rule;
+    $('#state-symbol').textContent = data.symbol;
+    const panel = $('#state-panel');
+    panel.animate?.([{ opacity: .65, transform: 'translateY(7px)' }, { opacity: 1, transform: 'none' }], { duration: 260, easing: 'ease-out' });
   }));
 
-  const playerModal = $('#player-modal');
-  const playerFrame = $('#player-frame');
-  const closePlayer = () => {
-    playerFrame.innerHTML = '';
-    playerModal.close();
+  const safeParse = (value, fallback) => {
+    try { return JSON.parse(value) ?? fallback; } catch { return fallback; }
   };
-  $$('[data-open-player]').forEach(button => button.addEventListener('click', () => {
-    const id = button.dataset.openPlayer;
-    playerFrame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1" title="Embedded source conversation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
-    playerModal.showModal();
+  const storage = {
+    get(key) { try { return window.localStorage.getItem(key); } catch { return null; } },
+    set(key, value) { try { window.localStorage.setItem(key, value); } catch {} },
+    remove(key) { try { window.localStorage.removeItem(key); } catch {} }
+  };
+
+  const dayInputs = $$('[data-day]');
+  const savedDays = new Set(safeParse(storage.get('tradeinsight-days'), []));
+  const syncProtocol = () => {
+    dayInputs.forEach(input => { input.checked = savedDays.has(input.dataset.day); });
+    const count = savedDays.size;
+    const countEl = $('#protocol-count');
+    const progressEl = $('#protocol-progress');
+    if (countEl) countEl.textContent = String(count);
+    if (progressEl) progressEl.style.width = `${(count / 7) * 100}%`;
+  };
+  dayInputs.forEach(input => input.addEventListener('change', () => {
+    input.checked ? savedDays.add(input.dataset.day) : savedDays.delete(input.dataset.day);
+    storage.set('tradeinsight-days', JSON.stringify([...savedDays]));
+    syncProtocol();
   }));
-  $('#close-player').addEventListener('click', closePlayer);
-  playerModal.addEventListener('click', event => {
-    if (event.target === playerModal) closePlayer();
+  $('#protocol-reset')?.addEventListener('click', () => {
+    savedDays.clear();
+    storage.remove('tradeinsight-days');
+    syncProtocol();
   });
-
-  const breathOverlay = $('#breath-overlay');
-  const breathOrb = $('.breath-orb');
-  const breathPhase = $('#breath-phase');
-  const breathCount = $('#breath-count');
-  let breathTimer;
-  let phaseTimer;
-  const phases = [
-    { name: 'Inhale', seconds: 4, className: 'inhale' },
-    { name: 'Hold', seconds: 2, className: 'inhale' },
-    { name: 'Exhale', seconds: 6, className: 'exhale' }
-  ];
-  const stopBreathing = () => {
-    clearInterval(breathTimer);
-    clearTimeout(phaseTimer);
-    breathOverlay.classList.remove('is-open');
-    breathOverlay.setAttribute('aria-hidden', 'true');
-    breathOrb.className = 'breath-orb';
-  };
-  const startBreathing = () => {
-    breathOverlay.classList.add('is-open');
-    breathOverlay.setAttribute('aria-hidden', 'false');
-    let elapsed = 0;
-    let phaseIndex = 0;
-    const runPhase = () => {
-      const phase = phases[phaseIndex];
-      breathPhase.textContent = phase.name;
-      breathOrb.className = `breath-orb ${phase.className}`;
-      let remaining = phase.seconds;
-      breathCount.textContent = remaining;
-      clearInterval(breathTimer);
-      breathTimer = setInterval(() => {
-        remaining -= 1;
-        breathCount.textContent = Math.max(remaining, 0);
-      }, 1000);
-      phaseTimer = setTimeout(() => {
-        elapsed += phase.seconds;
-        if (elapsed >= 60) {
-          breathPhase.textContent = 'Complete';
-          breathCount.textContent = '✓';
-          breathOrb.className = 'breath-orb';
-          clearInterval(breathTimer);
-          return;
-        }
-        phaseIndex = (phaseIndex + 1) % phases.length;
-        runPhase();
-      }, phase.seconds * 1000);
-    };
-    runPhase();
-  };
-  $('[data-breathe]').addEventListener('click', startBreathing);
-  $('#close-breath').addEventListener('click', stopBreathing);
-
-  const protocolInputs = $$('[data-day]');
-  const updateProtocol = () => {
-    const complete = protocolInputs.filter(input => input.checked).length;
-    $('#protocol-count').textContent = complete;
-    $('#protocol-progress').style.width = `${(complete / protocolInputs.length) * 100}%`;
-    localStorage.setItem('tradeinsight-protocol', JSON.stringify(protocolInputs.map(input => input.checked)));
-  };
-  const savedProtocol = JSON.parse(localStorage.getItem('tradeinsight-protocol') || '[]');
-  protocolInputs.forEach((input, index) => {
-    input.checked = Boolean(savedProtocol[index]);
-    input.addEventListener('change', updateProtocol);
-  });
-  $('#protocol-reset').addEventListener('click', () => {
-    protocolInputs.forEach(input => { input.checked = false; });
-    updateProtocol();
-  });
-  updateProtocol();
+  syncProtocol();
 
   const resetInputs = $$('[data-reset]');
   const updateReset = () => {
     const complete = resetInputs.filter(input => input.checked).length;
-    $('#reset-score').textContent = complete;
-    $('#reset-progress').style.width = `${(complete / resetInputs.length) * 100}%`;
+    const score = $('#reset-score');
+    const progress = $('#reset-progress');
     const message = $('#reset-message');
-    message.textContent = complete === resetInputs.length
-      ? 'State checked. Execute only if the setup also satisfies your written rules.'
-      : 'Complete all four checks before execution.';
-    message.classList.toggle('ready', complete === resetInputs.length);
+    if (score) score.textContent = String(complete);
+    if (progress) progress.style.width = `${(complete / Math.max(resetInputs.length, 1)) * 100}%`;
+    if (message) {
+      if (complete === resetInputs.length && complete > 0) {
+        message.textContent = 'State checked. Execute only if the setup meets your written rules.';
+        message.classList.add('ready');
+      } else {
+        message.textContent = 'Complete all four checks before execution.';
+        message.classList.remove('ready');
+      }
+    }
   };
   resetInputs.forEach(input => input.addEventListener('change', updateReset));
-  $('#reset-clear').addEventListener('click', () => {
+  $('#reset-clear')?.addEventListener('click', () => {
     resetInputs.forEach(input => { input.checked = false; });
     updateReset();
   });
   updateReset();
 
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') {
-      closeMenu();
-      if (breathOverlay.classList.contains('is-open')) stopBreathing();
-    }
+  const playerModal = $('#player-modal');
+  const playerFrame = $('#player-frame');
+  const openPlayer = videoId => {
+    if (!playerModal || !playerFrame || !videoId) return;
+    playerFrame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0&modestbranding=1" title="TradeInsight source conversation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+    if (typeof playerModal.showModal === 'function') playerModal.showModal();
+    else playerModal.setAttribute('open', '');
+  };
+  const closePlayer = () => {
+    if (!playerModal || !playerFrame) return;
+    playerFrame.innerHTML = '';
+    if (typeof playerModal.close === 'function') playerModal.close();
+    else playerModal.removeAttribute('open');
+  };
+  $$('[data-open-player]').forEach(button => button.addEventListener('click', () => openPlayer(button.dataset.openPlayer)));
+  $('#close-player')?.addEventListener('click', closePlayer);
+  playerModal?.addEventListener('click', event => {
+    const rect = playerModal.getBoundingClientRect();
+    const outside = event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
+    if (outside) closePlayer();
+  });
+  playerModal?.addEventListener('cancel', event => { event.preventDefault(); closePlayer(); });
+
+  const breathOverlay = $('#breath-overlay');
+  const phaseEl = $('#breath-phase');
+  const countEl = $('#breath-count');
+  let breathTimers = [];
+  const clearBreathTimers = () => { breathTimers.forEach(clearTimeout); breathTimers = []; };
+  const closeBreath = () => {
+    clearBreathTimers();
+    breathOverlay?.classList.remove('is-open', 'is-inhaling', 'is-exhaling');
+    breathOverlay?.setAttribute('aria-hidden', 'true');
+  };
+  const runPhase = (phase, seconds, className, next) => {
+    if (!breathOverlay || !phaseEl || !countEl) return;
+    breathOverlay.classList.remove('is-inhaling', 'is-exhaling');
+    if (className) breathOverlay.classList.add(className);
+    phaseEl.textContent = phase;
+    let left = seconds;
+    countEl.textContent = String(left);
+    const tick = () => {
+      left -= 1;
+      countEl.textContent = String(Math.max(left, 0));
+      if (left > 0) breathTimers.push(setTimeout(tick, 1000));
+      else breathTimers.push(setTimeout(next, 350));
+    };
+    breathTimers.push(setTimeout(tick, 1000));
+  };
+  const startCycle = () => runPhase('Inhale', 4, 'is-inhaling', () => runPhase('Hold', 2, '', () => runPhase('Exhale', 6, 'is-exhaling', startCycle)));
+  $$('[data-breathe]').forEach(button => button.addEventListener('click', () => {
+    clearBreathTimers();
+    breathOverlay?.classList.add('is-open');
+    breathOverlay?.setAttribute('aria-hidden', 'false');
+    startCycle();
+  }));
+  $('#close-breath')?.addEventListener('click', closeBreath);
+
+  window.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    closeMenu();
+    closeBreath();
+    if (playerModal?.open) closePlayer();
   });
 })();

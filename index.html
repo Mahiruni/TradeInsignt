@@ -14,22 +14,30 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#playbook">Skip to playbook</a>
   <div class="ambient ambient-a" aria-hidden="true"></div>
   <div class="ambient ambient-b" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
 
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="TradeInsight home">
-      <span class="brand-chart" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="brand-chart" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+      </span>
       <span><strong>TRADE</strong><small>INSIGHT</small></span>
     </a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation"><span></span><span></span></button>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+      <span></span><span></span>
+    </button>
+
     <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
       <a href="#playbook">Playbook</a>
       <a href="#states">Emotional states</a>
       <a href="#protocol">Protocol</a>
       <a href="#sources">Sources</a>
     </nav>
+
     <a class="nav-action" href="#reset">Run the reset <span>↘</span></a>
   </header>
 
@@ -52,54 +60,199 @@
 
       <div class="hero-visual reveal delay-1" aria-label="Emotional trading cycle illustration">
         <div class="chart-shell">
-          <div class="chart-header"><span>TRADER STATE / LIVE</span><span class="status"><i></i> Self-awareness active</span></div>
+          <div class="chart-header">
+            <span>TRADER STATE / LIVE</span>
+            <span class="status"><i></i> Self-awareness active</span>
+          </div>
           <svg class="hero-chart" viewBox="0 0 720 460" role="img" aria-label="Candlestick chart showing emotional reactions and disciplined recovery">
-            <defs><linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7f9cff"/><stop offset="1" stop-color="#caff5a"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+            <defs>
+              <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7f9cff"/><stop offset="1" stop-color="#caff5a"/></linearGradient>
+              <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
             <g class="grid-lines"><path d="M40 80H680M40 160H680M40 240H680M40 320H680M40 400H680"/><path d="M120 38V420M240 38V420M360 38V420M480 38V420M600 38V420"/></g>
             <g class="candles">
-              <g class="up"><path d="M76 245V330"/><rect x="66" y="267" width="20" height="42" rx="3"/></g><g class="up"><path d="M112 210V292"/><rect x="102" y="230" width="20" height="42" rx="3"/></g><g class="down"><path d="M148 194V283"/><rect x="138" y="211" width="20" height="52" rx="3"/></g><g class="down"><path d="M184 226V348"/><rect x="174" y="246" width="20" height="78" rx="3"/></g><g class="down"><path d="M220 270V385"/><rect x="210" y="293" width="20" height="67" rx="3"/></g><g class="up"><path d="M256 251V359"/><rect x="246" y="273" width="20" height="62" rx="3"/></g><g class="up"><path d="M292 205V310"/><rect x="282" y="225" width="20" height="63" rx="3"/></g><g class="up"><path d="M328 175V268"/><rect x="318" y="192" width="20" height="55" rx="3"/></g><g class="down"><path d="M364 156V248"/><rect x="354" y="174" width="20" height="52" rx="3"/></g><g class="up"><path d="M400 132V224"/><rect x="390" y="151" width="20" height="51" rx="3"/></g><g class="up"><path d="M436 106V197"/><rect x="426" y="124" width="20" height="53" rx="3"/></g><g class="down"><path d="M472 95V188"/><rect x="462" y="111" width="20" height="55" rx="3"/></g><g class="up"><path d="M508 83V172"/><rect x="498" y="102" width="20" height="48" rx="3"/></g><g class="up"><path d="M544 67V146"/><rect x="534" y="82" width="20" height="46" rx="3"/></g><g class="down"><path d="M580 57V151"/><rect x="570" y="75" width="20" height="53" rx="3"/></g><g class="up"><path d="M616 48V126"/><rect x="606" y="64" width="20" height="43" rx="3"/></g>
+              <g class="up"><path d="M76 245V330"/><rect x="66" y="267" width="20" height="42" rx="3"/></g>
+              <g class="up"><path d="M112 210V292"/><rect x="102" y="230" width="20" height="42" rx="3"/></g>
+              <g class="down"><path d="M148 194V283"/><rect x="138" y="211" width="20" height="52" rx="3"/></g>
+              <g class="down"><path d="M184 226V348"/><rect x="174" y="246" width="20" height="78" rx="3"/></g>
+              <g class="down"><path d="M220 270V385"/><rect x="210" y="293" width="20" height="67" rx="3"/></g>
+              <g class="up"><path d="M256 251V359"/><rect x="246" y="273" width="20" height="62" rx="3"/></g>
+              <g class="up"><path d="M292 205V310"/><rect x="282" y="225" width="20" height="63" rx="3"/></g>
+              <g class="up"><path d="M328 175V268"/><rect x="318" y="192" width="20" height="55" rx="3"/></g>
+              <g class="down"><path d="M364 156V248"/><rect x="354" y="174" width="20" height="52" rx="3"/></g>
+              <g class="up"><path d="M400 132V224"/><rect x="390" y="151" width="20" height="51" rx="3"/></g>
+              <g class="up"><path d="M436 106V197"/><rect x="426" y="124" width="20" height="53" rx="3"/></g>
+              <g class="down"><path d="M472 95V188"/><rect x="462" y="111" width="20" height="55" rx="3"/></g>
+              <g class="up"><path d="M508 83V172"/><rect x="498" y="102" width="20" height="48" rx="3"/></g>
+              <g class="up"><path d="M544 67V146"/><rect x="534" y="82" width="20" height="46" rx="3"/></g>
+              <g class="down"><path d="M580 57V151"/><rect x="570" y="75" width="20" height="53" rx="3"/></g>
+              <g class="up"><path d="M616 48V126"/><rect x="606" y="64" width="20" height="43" rx="3"/></g>
             </g>
             <path class="state-line" d="M76 286 C125 190 174 362 220 332 S303 206 364 197 S437 115 508 121 S579 76 632 86"/>
-            <g class="chart-tags"><g transform="translate(132 118)"><rect width="112" height="35" rx="17.5"/><text x="56" y="22">FEAR HIJACK</text></g><g transform="translate(203 382)"><rect width="124" height="35" rx="17.5"/><text x="62" y="22">PAUSE + BREATHE</text></g><g transform="translate(493 174)"><rect width="129" height="35" rx="17.5"/><text x="64.5" y="22">PROCESS RESTORED</text></g></g>
+            <g class="chart-tags">
+              <g transform="translate(132 118)"><rect width="112" height="35" rx="17.5"/><text x="56" y="22">FEAR HIJACK</text></g>
+              <g transform="translate(203 382)"><rect width="124" height="35" rx="17.5"/><text x="62" y="22">PAUSE + BREATHE</text></g>
+              <g transform="translate(493 174)"><rect width="129" height="35" rx="17.5"/><text x="64.5" y="22">PROCESS RESTORED</text></g>
+            </g>
           </svg>
-          <div class="chart-footer"><div><span>Primitive reaction</span><strong>Threat → control</strong></div><div><span>Trained response</span><strong>Observe → execute</strong></div></div>
+          <div class="chart-footer">
+            <div><span>Primitive reaction</span><strong>Threat → control</strong></div>
+            <div><span>Trained response</span><strong>Observe → execute</strong></div>
+          </div>
         </div>
         <div class="floating-card card-loss"><span>01</span><p>Become an expert at <strong>losing correctly.</strong></p></div>
         <div class="floating-card card-process"><span>02</span><p>Measure <strong>execution</strong>, not prediction.</p></div>
       </div>
     </section>
 
-    <section class="thesis-strip" aria-label="Core principles"><div><span>OLD BRAIN</span><strong>seeks certainty</strong></div><div><span>MARKET</span><strong>offers probability</strong></div><div><span>EDGE</span><strong>needs repetition</strong></div><div><span>MASTERY</span><strong>starts with observation</strong></div></section>
+    <section class="thesis-strip" aria-label="Core principles">
+      <div><span>OLD BRAIN</span><strong>seeks certainty</strong></div>
+      <div><span>MARKET</span><strong>offers probability</strong></div>
+      <div><span>EDGE</span><strong>needs repetition</strong></div>
+      <div><span>MASTERY</span><strong>starts with observation</strong></div>
+    </section>
 
     <section class="section playbook" id="playbook">
-      <header class="section-heading reveal"><div><span class="section-label">01 / THE DISTILLED PLAYBOOK</span><h2>Twelve principles worth returning to before every session.</h2></div><p>Filtered from the conversations into practical language. No filler, no motivational noise—only ideas that change behaviour.</p></header>
-      <div class="principle-filters reveal" role="group" aria-label="Filter principles"><button class="is-active" data-filter="all" type="button">All principles</button><button data-filter="mind" type="button">Mind</button><button data-filter="risk" type="button">Risk</button><button data-filter="execution" type="button">Execution</button><button data-filter="recovery" type="button">Recovery</button></div>
+      <header class="section-heading reveal">
+        <div><span class="section-label">01 / THE DISTILLED PLAYBOOK</span><h2>Twelve principles worth returning to before every session.</h2></div>
+        <p>Filtered from the conversations into practical language. No filler, no motivational noise—only ideas that change behaviour.</p>
+      </header>
+
+      <div class="principle-filters reveal" role="group" aria-label="Filter principles">
+        <button class="is-active" data-filter="all" type="button">All principles</button>
+        <button data-filter="mind" type="button">Mind</button>
+        <button data-filter="risk" type="button">Risk</button>
+        <button data-filter="execution" type="button">Execution</button>
+        <button data-filter="recovery" type="button">Recovery</button>
+      </div>
+
       <div class="principle-grid">
-        <article class="principle principle-lead reveal" data-category="mind execution"><div class="principle-top"><span>01</span><i aria-hidden="true">✦</i></div><h3>Your brain was built to survive, not to trade.</h3><p>Uncertainty can feel like danger. A losing candle can activate the same protective machinery designed for physical threat—fight, flee, freeze or force control.</p><div class="translation"><span>Translate it into action</span><strong>Never make a new decision while your body feels threatened.</strong></div><div class="mini-candles" aria-hidden="true"><i class="green"></i><i class="green"></i><i class="red tall"></i><i class="red"></i><i class="green tall"></i><i class="green"></i></div></article>
-        <article class="principle reveal" data-category="execution mind"><div class="principle-top"><span>02</span><i aria-hidden="true">◎</i></div><h3>Performance beats winning.</h3><p>You cannot command the next outcome. You can command preparation, risk, entry criteria and whether you obey the plan.</p><div class="metric-pair"><div><small>Wrong metric</small><strong>Did I win?</strong></div><div><small>Useful metric</small><strong>Did I execute?</strong></div></div></article>
-        <article class="principle reveal" data-category="risk execution"><div class="principle-top"><span>03</span><i aria-hidden="true">⌁</i></div><h3>Become an expert at losing.</h3><p>A professional loss is planned, small and emotionally ordinary. The trader survives by cutting invalid ideas—not by defending identity.</p><ul class="clean-list"><li>Known invalidation</li><li>Predefined risk</li><li>No revenge entry</li></ul></article>
-        <article class="principle reveal" data-category="mind recovery"><div class="principle-top"><span>04</span><i aria-hidden="true">◌</i></div><h3>Emotion arrives before explanation.</h3><p>Humans often feel first and rationalise second. The story that appears after a bad entry may simply be your emotion protecting itself.</p><blockquote>“Is this trade in the plan—or am I building a reason because I already want it?”</blockquote></article>
-        <article class="principle reveal" data-category="mind execution"><div class="principle-top"><span>05</span><i aria-hidden="true">◉</i></div><h3>Observe the observer.</h3><p>Step behind the thought. Notice tension, shallow breathing, urgency and the need to be right before they become an order.</p><div class="signal-list"><span><i></i> jaw or shoulder tension</span><span><i></i> accelerated clicking</span><span><i></i> bargaining with the stop</span></div></article>
-        <article class="principle reveal" data-category="recovery mind"><div class="principle-top"><span>06</span><i aria-hidden="true">≈</i></div><h3>Regulate the body to recover the mind.</h3><p>Slow diaphragmatic breathing is not decoration. It reduces arousal so the thinking brain can return to the decision.</p><button class="breath-button" type="button" data-breathe><span></span><strong>Start 60-second breathing</strong><small>4 in · 2 hold · 6 out</small></button></article>
-        <article class="principle reveal" data-category="risk mind"><div class="principle-top"><span>07</span><i aria-hidden="true">◇</i></div><h3>Perfectionism is disguised fear.</h3><p>Needing the perfect entry or refusing to be wrong increases anxiety, missed trades and rule-breaking. Probability demands room for imperfect outcomes.</p><div class="probability-meter"><span style="--value:64%"></span><small>One trade = noise. A large sample = evidence.</small></div></article>
-        <article class="principle reveal" data-category="recovery execution"><div class="principle-top"><span>08</span><i aria-hidden="true">↺</i></div><h3>Winning can hijack you too.</h3><p>Euphoria raises risk tolerance and creates the illusion of control. After a big win, the next task is not “press harder”—it is returning to baseline.</p><div class="warning-pill">Dopamine risk: overconfidence → oversizing</div></article>
-        <article class="principle reveal" data-category="execution recovery"><div class="principle-top"><span>09</span><i aria-hidden="true">◷</i></div><h3>Your cognitive capacity is finite.</h3><p>Accuracy declines when attention is depleted. Use scheduled breaks before mistakes become visible in P&amp;L.</p><div class="timeline"><span><i>00</i> prepare</span><span><i>15</i> state check</span><span><i>30</i> state check</span><span><i>60</i> leave screen</span></div></article>
-        <article class="principle reveal" data-category="mind recovery"><div class="principle-top"><span>10</span><i aria-hidden="true">♡</i></div><h3>Shame does not build discipline.</h3><p>Self-attack strengthens the emotional pattern behind failure. Review mistakes with honesty and compassion: firm on behaviour, separate from worth.</p><div class="review-rule"><del>“I am a terrible trader.”</del><ins>“I broke rule 3. Why?”</ins></div></article>
-        <article class="principle reveal" data-category="execution risk"><div class="principle-top"><span>11</span><i aria-hidden="true">▦</i></div><h3>Trust must come from evidence.</h3><p>Backtesting and journaling reduce the urge to interfere. A verified edge gives the mind permission to let probability work.</p><div class="evidence-row"><span>Backtest</span><i></i><span>Execute</span><i></i><span>Review</span><i></i><span>Trust</span></div></article>
-        <article class="principle reveal" data-category="mind execution"><div class="principle-top"><span>12</span><i aria-hidden="true">△</i></div><h3>The chart is a mirror of human behaviour.</h3><p>Price records collective fear, urgency, relief and greed. Reading structure becomes clearer when you stop demanding certainty from it.</p><div class="quote-card">See the market. Notice yourself. Execute the rule.</div></article>
+        <article class="principle principle-lead reveal" data-category="mind execution">
+          <div class="principle-top"><span>01</span><i class="icon-brain" aria-hidden="true">✦</i></div>
+          <h3>Your brain was built to survive, not to trade.</h3>
+          <p>Uncertainty can feel like danger. A losing candle can activate the same protective machinery designed for physical threat—fight, flee, freeze or force control.</p>
+          <div class="translation"><span>Translate it into action</span><strong>Never make a new decision while your body feels threatened.</strong></div>
+          <div class="mini-candles" aria-hidden="true"><i class="green"></i><i class="green"></i><i class="red tall"></i><i class="red"></i><i class="green tall"></i><i class="green"></i></div>
+        </article>
+
+        <article class="principle reveal" data-category="execution mind">
+          <div class="principle-top"><span>02</span><i aria-hidden="true">◎</i></div>
+          <h3>Performance beats winning.</h3>
+          <p>You cannot command the next outcome. You can command preparation, risk, entry criteria and whether you obey the plan.</p>
+          <div class="metric-pair"><div><small>Wrong metric</small><strong>Did I win?</strong></div><div><small>Useful metric</small><strong>Did I execute?</strong></div></div>
+        </article>
+
+        <article class="principle reveal" data-category="risk execution">
+          <div class="principle-top"><span>03</span><i aria-hidden="true">⌁</i></div>
+          <h3>Become an expert at losing.</h3>
+          <p>A professional loss is planned, small and emotionally ordinary. The trader survives by cutting invalid ideas—not by defending identity.</p>
+          <ul class="clean-list"><li>Known invalidation</li><li>Predefined risk</li><li>No revenge entry</li></ul>
+        </article>
+
+        <article class="principle reveal" data-category="mind recovery">
+          <div class="principle-top"><span>04</span><i aria-hidden="true">◌</i></div>
+          <h3>Emotion arrives before explanation.</h3>
+          <p>Humans often feel first and rationalise second. The story that appears after a bad entry may simply be your emotion protecting itself.</p>
+          <blockquote>“Is this trade in the plan—or am I building a reason because I already want it?”</blockquote>
+        </article>
+
+        <article class="principle reveal" data-category="mind execution">
+          <div class="principle-top"><span>05</span><i aria-hidden="true">◉</i></div>
+          <h3>Observe the observer.</h3>
+          <p>Step behind the thought. Notice tension, shallow breathing, urgency and the need to be right before they become an order.</p>
+          <div class="signal-list"><span><i></i> jaw or shoulder tension</span><span><i></i> accelerated clicking</span><span><i></i> bargaining with the stop</span></div>
+        </article>
+
+        <article class="principle reveal" data-category="recovery mind">
+          <div class="principle-top"><span>06</span><i aria-hidden="true">≈</i></div>
+          <h3>Regulate the body to recover the mind.</h3>
+          <p>Slow diaphragmatic breathing is not decoration. It reduces arousal so the thinking brain can return to the decision.</p>
+          <button class="breath-button" type="button" data-breathe><span></span><strong>Start 60-second breathing</strong><small>4 in · 2 hold · 6 out</small></button>
+        </article>
+
+        <article class="principle reveal" data-category="risk mind">
+          <div class="principle-top"><span>07</span><i aria-hidden="true">◇</i></div>
+          <h3>Perfectionism is disguised fear.</h3>
+          <p>Needing the perfect entry or refusing to be wrong increases anxiety, missed trades and rule-breaking. Probability demands room for imperfect outcomes.</p>
+          <div class="probability-meter"><span style="--value:64%"></span><small>One trade = noise. A large sample = evidence.</small></div>
+        </article>
+
+        <article class="principle reveal" data-category="recovery execution">
+          <div class="principle-top"><span>08</span><i aria-hidden="true">↺</i></div>
+          <h3>Winning can hijack you too.</h3>
+          <p>Euphoria raises risk tolerance and creates the illusion of control. After a big win, the next task is not “press harder”—it is returning to baseline.</p>
+          <div class="warning-pill">Dopamine risk: overconfidence → oversizing</div>
+        </article>
+
+        <article class="principle reveal" data-category="execution recovery">
+          <div class="principle-top"><span>09</span><i aria-hidden="true">◷</i></div>
+          <h3>Your cognitive capacity is finite.</h3>
+          <p>Accuracy declines when attention is depleted. Use scheduled breaks before mistakes become visible in P&amp;L.</p>
+          <div class="timeline"><span><i>00</i> prepare</span><span><i>15</i> state check</span><span><i>30</i> state check</span><span><i>60</i> leave screen</span></div>
+        </article>
+
+        <article class="principle reveal" data-category="mind recovery">
+          <div class="principle-top"><span>10</span><i aria-hidden="true">♡</i></div>
+          <h3>Shame does not build discipline.</h3>
+          <p>Self-attack strengthens the emotional pattern behind failure. Review mistakes with honesty and compassion: firm on behaviour, separate from worth.</p>
+          <div class="review-rule"><del>“I am a terrible trader.”</del><ins>“I broke rule 3. Why?”</ins></div>
+        </article>
+
+        <article class="principle reveal" data-category="execution risk">
+          <div class="principle-top"><span>11</span><i aria-hidden="true">▦</i></div>
+          <h3>Trust must come from evidence.</h3>
+          <p>Backtesting and journaling reduce the urge to interfere. A verified edge gives the mind permission to let probability work.</p>
+          <div class="evidence-row"><span>Backtest</span><i></i><span>Execute</span><i></i><span>Review</span><i></i><span>Trust</span></div>
+        </article>
+
+        <article class="principle reveal" data-category="mind execution">
+          <div class="principle-top"><span>12</span><i aria-hidden="true">△</i></div>
+          <h3>The chart is a mirror of human behaviour.</h3>
+          <p>Price records collective fear, urgency, relief and greed. Reading structure becomes clearer when you stop demanding certainty from it.</p>
+          <div class="quote-card">See the market. Notice yourself. Execute the rule.</div>
+        </article>
       </div>
     </section>
 
     <section class="section state-section" id="states">
-      <header class="section-heading reveal"><div><span class="section-label">02 / EMOTIONAL STATE MAP</span><h2>Identify the state before it chooses the trade.</h2></div><p>Select the emotion that is present. The page gives you its market symptom, internal mechanism and corrective rule.</p></header>
+      <header class="section-heading reveal">
+        <div><span class="section-label">02 / EMOTIONAL STATE MAP</span><h2>Identify the state before it chooses the trade.</h2></div>
+        <p>Select the emotion that is present. The page gives you its market symptom, internal mechanism and corrective rule.</p>
+      </header>
+
       <div class="state-layout reveal">
-        <div class="state-tabs" role="tablist" aria-label="Emotional states"><button class="is-active" type="button" role="tab" aria-selected="true" data-state="fear"><span class="state-icon">↓</span><strong>Fear</strong><small>avoidance &amp; control</small></button><button type="button" role="tab" aria-selected="false" data-state="greed"><span class="state-icon">↑</span><strong>Greed</strong><small>reward blindness</small></button><button type="button" role="tab" aria-selected="false" data-state="revenge"><span class="state-icon">↯</span><strong>Revenge</strong><small>identity repair</small></button><button type="button" role="tab" aria-selected="false" data-state="euphoria"><span class="state-icon">✦</span><strong>Euphoria</strong><small>control illusion</small></button></div>
-        <article class="state-panel" id="state-panel" aria-live="polite"><div class="state-copy"><span class="state-kicker" id="state-kicker">STATE 01 · THREAT RESPONSE</span><h3 id="state-title">Fear makes certainty feel more important than process.</h3><p id="state-description">The mind tries to remove uncertainty by moving stops, closing early, skipping valid entries or refusing a planned loss.</p><div class="state-columns"><div><small>What it sounds like</small><blockquote id="state-voice">“Maybe I should wait for one more confirmation.”</blockquote></div><div><small>Corrective rule</small><strong id="state-rule">If the setup is valid and risk is accepted, execute without adding conditions.</strong></div></div></div><div class="state-graphic" aria-hidden="true"><div class="pulse-ring"><span id="state-symbol">↓</span></div><div class="state-candles" id="state-candles"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="baseline"><span>reactive</span><span>regulated</span></div></div></article>
+        <div class="state-tabs" role="tablist" aria-label="Emotional states">
+          <button class="is-active" type="button" role="tab" aria-selected="true" data-state="fear"><span class="state-icon">↓</span><strong>Fear</strong><small>avoidance &amp; control</small></button>
+          <button type="button" role="tab" aria-selected="false" data-state="greed"><span class="state-icon">↑</span><strong>Greed</strong><small>reward blindness</small></button>
+          <button type="button" role="tab" aria-selected="false" data-state="revenge"><span class="state-icon">↯</span><strong>Revenge</strong><small>identity repair</small></button>
+          <button type="button" role="tab" aria-selected="false" data-state="euphoria"><span class="state-icon">✦</span><strong>Euphoria</strong><small>control illusion</small></button>
+        </div>
+
+        <article class="state-panel" id="state-panel" aria-live="polite">
+          <div class="state-copy">
+            <span class="state-kicker" id="state-kicker">STATE 01 · THREAT RESPONSE</span>
+            <h3 id="state-title">Fear makes certainty feel more important than process.</h3>
+            <p id="state-description">The mind tries to remove uncertainty by moving stops, closing early, skipping valid entries or refusing a planned loss.</p>
+            <div class="state-columns">
+              <div><small>What it sounds like</small><blockquote id="state-voice">“Maybe I should wait for one more confirmation.”</blockquote></div>
+              <div><small>Corrective rule</small><strong id="state-rule">If the setup is valid and risk is accepted, execute without adding conditions.</strong></div>
+            </div>
+          </div>
+          <div class="state-graphic" aria-hidden="true">
+            <div class="pulse-ring"><span id="state-symbol">↓</span></div>
+            <div class="state-candles" id="state-candles"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="baseline"><span>reactive</span><span>regulated</span></div>
+          </div>
+        </article>
       </div>
     </section>
 
     <section class="section protocol-section" id="protocol">
-      <header class="section-heading reveal"><div><span class="section-label">03 / 7-DAY TRAINING PROTOCOL</span><h2>Knowledge becomes useful only after rehearsal.</h2></div><p>A compact routine that converts podcast insight into embodied behaviour. Repeat weekly until the process feels ordinary.</p></header>
+      <header class="section-heading reveal">
+        <div><span class="section-label">03 / 7-DAY TRAINING PROTOCOL</span><h2>Knowledge becomes useful only after rehearsal.</h2></div>
+        <p>A compact routine that converts podcast insight into embodied behaviour. Repeat weekly until the process feels ordinary.</p>
+      </header>
+
       <div class="protocol-grid">
         <article class="day-card reveal"><span>DAY 01</span><i>◉</i><h3>Watch yourself</h3><p>Record one session. Note breathing, posture, clicking speed and the moments your body changes.</p><label><input type="checkbox" data-day="1"><span>Mark complete</span></label></article>
         <article class="day-card reveal"><span>DAY 02</span><i>≈</i><h3>Train the breath</h3><p>Complete three five-minute sessions using a longer exhale than inhale.</p><label><input type="checkbox" data-day="2"><span>Mark complete</span></label></article>
@@ -113,24 +266,70 @@
     </section>
 
     <section class="reset-section" id="reset">
-      <div class="reset-copy reveal"><span class="section-label">04 / BEFORE YOU EXECUTE</span><h2>A 90-second state reset.</h2><p>Use this immediately before the session, after a loss, after a large win, or whenever urgency appears.</p><div class="reset-score"><span>Readiness</span><strong><b id="reset-score">0</b>/4</strong></div></div>
-      <div class="reset-card reveal delay-1"><label><input type="checkbox" data-reset><span><i>01</i><strong>My breathing is slow and my body is not tense.</strong><small>Regulate physiology first.</small></span></label><label><input type="checkbox" data-reset><span><i>02</i><strong>I accept the full predefined loss before entry.</strong><small>No bargaining after execution.</small></span></label><label><input type="checkbox" data-reset><span><i>03</i><strong>This setup exists in my written plan.</strong><small>Desire is not a signal.</small></span></label><label><input type="checkbox" data-reset><span><i>04</i><strong>I will judge execution, not the next outcome.</strong><small>Probability needs a sample.</small></span></label><div class="reset-footer"><div class="reset-track"><i id="reset-progress"></i></div><p id="reset-message">Complete all four checks before execution.</p><button type="button" id="reset-clear">Clear</button></div></div>
+      <div class="reset-copy reveal">
+        <span class="section-label">04 / BEFORE YOU EXECUTE</span>
+        <h2>A 90-second state reset.</h2>
+        <p>Use this immediately before the session, after a loss, after a large win, or whenever urgency appears.</p>
+        <div class="reset-score"><span>Readiness</span><strong><b id="reset-score">0</b>/4</strong></div>
+      </div>
+      <div class="reset-card reveal delay-1">
+        <label><input type="checkbox" data-reset><span><i>01</i><strong>My breathing is slow and my body is not tense.</strong><small>Regulate physiology first.</small></span></label>
+        <label><input type="checkbox" data-reset><span><i>02</i><strong>I accept the full predefined loss before entry.</strong><small>No bargaining after execution.</small></span></label>
+        <label><input type="checkbox" data-reset><span><i>03</i><strong>This setup exists in my written plan.</strong><small>Desire is not a signal.</small></span></label>
+        <label><input type="checkbox" data-reset><span><i>04</i><strong>I will judge execution, not the next outcome.</strong><small>Probability needs a sample.</small></span></label>
+        <div class="reset-footer"><div class="reset-track"><i id="reset-progress"></i></div><p id="reset-message">Complete all four checks before execution.</p><button type="button" id="reset-clear">Clear</button></div>
+      </div>
     </section>
 
     <section class="section source-section" id="sources">
-      <header class="section-heading reveal"><div><span class="section-label">05 / SOURCE CONVERSATIONS</span><h2>The playbook first. The full conversations only when you need depth.</h2></div><p>The videos remain optional references and play inside this website through privacy-enhanced embedded players.</p></header>
+      <header class="section-heading reveal">
+        <div><span class="section-label">05 / SOURCE CONVERSATIONS</span><h2>The playbook first. The full conversations only when you need depth.</h2></div>
+        <p>The videos remain optional references and play inside this website through privacy-enhanced embedded players.</p>
+      </header>
       <div class="source-grid">
-        <article class="source-card reveal"><div class="source-number">SOURCE 01</div><div class="source-icon">RH</div><div><h3>Master Trading Psychology with Rande Howell</h3><p>The primary source behind the ancient-brain model, emotional regulation, probability thinking and performance-based execution.</p></div><button type="button" data-open-player="ICeHYLSXgYI">Play here <span>▶</span></button></article>
-        <article class="source-card reveal"><div class="source-number">SOURCE 02</div><div class="source-icon">02</div><div><h3>Second curated trading conversation</h3><p>Included as an additional reference in the learning archive. Playback remains inside TradeInsight.</p></div><button type="button" data-open-player="znSRU984kc8">Play here <span>▶</span></button></article>
+        <article class="source-card reveal">
+          <div class="source-number">SOURCE 01</div>
+          <div class="source-icon">RH</div>
+          <div><h3>Master Trading Psychology with Rande Howell</h3><p>The primary source behind the ancient-brain model, emotional regulation, probability thinking and performance-based execution.</p></div>
+          <button type="button" data-open-player="ICeHYLSXgYI">Play here <span>▶</span></button>
+        </article>
+        <article class="source-card reveal">
+          <div class="source-number">SOURCE 02</div>
+          <div class="source-icon">02</div>
+          <div><h3>Second curated trading conversation</h3><p>Included as an additional reference in the learning archive. Playback remains inside TradeInsight.</p></div>
+          <button type="button" data-open-player="znSRU984kc8">Play here <span>▶</span></button>
+        </article>
       </div>
       <p class="source-note reveal">Educational notes only. TradeInsight does not provide financial advice, trade signals or guaranteed outcomes.</p>
     </section>
   </main>
 
-  <footer class="site-footer"><a class="brand footer-brand" href="#top"><span class="brand-chart"><i></i><i></i><i></i><i></i></span><span><strong>TRADE</strong><small>INSIGHT</small></span></a><p>Train the state. Follow the process. Let probability work.</p><span>© <b id="year"></b> TradeInsight</span></footer>
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#top"><span class="brand-chart"><i></i><i></i><i></i><i></i></span><span><strong>TRADE</strong><small>INSIGHT</small></span></a>
+    <p>Train the state. Follow the process. Let probability work.</p>
+    <span>© <b id="year"></b> TradeInsight</span>
+  </footer>
 
-  <dialog class="player-modal" id="player-modal"><div class="player-head"><div><span>OPTIONAL SOURCE</span><strong>Watch without leaving TradeInsight</strong></div><button type="button" id="close-player" aria-label="Close video">×</button></div><div class="player-frame" id="player-frame"></div><p>Playback is provided by YouTube in privacy-enhanced mode. The written playbook remains the primary experience.</p></dialog>
-  <div class="breath-overlay" id="breath-overlay" aria-hidden="true"><button type="button" id="close-breath" aria-label="Close breathing exercise">×</button><div class="breath-orb"><span id="breath-phase">Inhale</span><strong id="breath-count">4</strong></div><p>Stay still. Let the exhale be longer than the inhale.</p></div>
+  <dialog class="player-modal" id="player-modal">
+    <div class="player-head"><div><span>OPTIONAL SOURCE</span><strong>Watch without leaving TradeInsight</strong></div><button type="button" id="close-player" aria-label="Close video">×</button></div>
+    <div class="player-frame" id="player-frame"></div>
+    <p>Playback is provided by YouTube in privacy-enhanced mode. The written playbook remains the primary experience.</p>
+  </dialog>
+
+  <div class="breath-overlay" id="breath-overlay" aria-hidden="true">
+    <button type="button" id="close-breath" aria-label="Close breathing exercise">×</button>
+    <div class="breath-orb"><span id="breath-phase">Inhale</span><strong id="breath-count">4</strong></div>
+    <p>Stay still. Let the exhale be longer than the inhale.</p>
+  </div>
+
+  <nav class="mobile-dock" aria-label="Mobile quick navigation">
+    <a href="#playbook"><span>⌁</span><small>Playbook</small></a>
+    <a href="#states"><span>◉</span><small>States</small></a>
+    <a class="dock-primary" href="#reset"><span>✓</span><small>Reset</small></a>
+    <a href="#protocol"><span>▦</span><small>Protocol</small></a>
+    <button type="button" data-open-player="ICeHYLSXgYI"><span>▶</span><small>Source</small></button>
+  </nav>
+
   <script src="app.js"></script>
 </body>
 </html>

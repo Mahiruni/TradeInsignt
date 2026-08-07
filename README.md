@@ -1,22 +1,18 @@
 # TradeInsight
 
-A visual trading-psychology playbook distilled from long-form expert conversations.
+A premium, mobile-first trading psychology playbook distilled from expert conversations.
 
-## Product direction
+## Experience
 
-TradeInsight is **not a video catalogue**. The primary experience is a permanent written and graphical knowledge system that traders can use before, during and after a session.
-
-## Included
-
-- 12 filtered psychology, execution, risk and recovery principles
-- Emotional-state diagnostics for fear, greed, revenge and euphoria
-- Candlestick and decision-state graphics built with HTML/CSS/SVG
-- Interactive 60-second breathing exercise
-- Seven-day psychology training protocol with saved progress
-- Pre-trade readiness checklist
-- Optional privacy-enhanced source videos that play inside the website
-- Responsive desktop and mobile interface
-- Static, dependency-free deployment
+- Restores the original dark editorial frontend with lime accents, glass cards and strong typography
+- 12 filterable psychology, risk, execution and recovery principles
+- Interactive emotional-state map
+- Seven-day training protocol with saved progress
+- Pre-trade readiness reset
+- Guided breathing exercise
+- Optional YouTube source conversations embedded inside the website
+- Responsive mobile drawer and bottom quick-navigation dock
+- Large touch targets, horizontal mobile filters and accessible focus states
 
 ## Run locally
 
@@ -26,8 +22,6 @@ python3 -m http.server 4173
 
 Open `http://localhost:4173`.
 
-## Deploy
+## Deployment
 
-The repository includes `vercel.json` and can also be deployed on GitHub Pages, Netlify, Cloudflare Pages or any static server.
-
-> Educational content only. This project does not provide financial advice, trade signals or guaranteed outcomes.
+The site is static and can deploy directly to Vercel, Netlify, GitHub Pages or Cloudflare Pages.
