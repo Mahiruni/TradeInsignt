@@ -1,0 +1,54 @@
+name: Apply mobile-first redesign
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/apply-mobile-redesign.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore premium mobile frontend
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat \
+            .mobile-redesign/payload.00 \
+            .mobile-redesign/payload.01 \
+            .mobile-redesign/payload.02 \
+            .mobile-redesign/payload.03a \
+            .mobile-redesign/payload.03b \
+            .mobile-redesign/payload.03c \
+            .mobile-redesign/payload.03d \
+            .mobile-redesign/payload.03e \
+            .mobile-redesign/payload.03f \
+            .mobile-redesign/payload.04a \
+            .mobile-redesign/payload.04b \
+            > /tmp/tradeinsight-mobile.b64
+          base64 --decode /tmp/tradeinsight-mobile.b64 > /tmp/tradeinsight-mobile.tar.gz
+          tar -xzf /tmp/tradeinsight-mobile.tar.gz -C .
+          rm -rf .mobile-redesign
+          rm -f .github/workflows/apply-mobile-redesign.yml
+
+      - name: Commit production files
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Restore premium mobile-first TradeInsight frontend [skip ci]"
+          git push
