@@ -1,27 +1,24 @@
-# TradeInsight
+# TradeInsight — Trader OS
 
-A premium, mobile-first trading psychology playbook distilled from expert conversations.
+A mobile-first trading psychology and execution-discipline product built from curated long-form trading insights.
 
-## Experience
+## What is included
 
-- Restores the original dark editorial frontend with lime accents, glass cards and strong typography
-- 12 filterable psychology, risk, execution and recovery principles
-- Interactive emotional-state map
-- Seven-day training protocol with saved progress
-- Pre-trade readiness reset
-- Guided breathing exercise
-- Optional YouTube source conversations embedded inside the website
-- Responsive mobile drawer and bottom quick-navigation dock
-- Large touch targets, horizontal mobile filters and accessible focus states
+- Trader OS dashboard
+- Daily mental-state check-in
+- One Rule Today
+- Searchable/filterable psychology playbook
+- Candlestick psychology visuals
+- Emotional-state Mind Lab
+- Pre-trade execution gate
+- Trader process score
+- Trading mistake library
+- Personalized learning-path diagnostic
+- Seven-day psychology protocol
+- Trading Session Mode
+- Psychology-first trade journal
+- Saved "My Playbook" library
+- In-site embedded source playback
+- Responsive mobile bottom navigation and emergency reset
 
-## Run locally
-
-```bash
-python3 -m http.server 4173
-```
-
-Open `http://localhost:4173`.
-
-## Deployment
-
-The site is static and can deploy directly to Vercel, Netlify, GitHub Pages or Cloudflare Pages.
+All personal state is stored locally in the browser. No account or backend is required for this release.
