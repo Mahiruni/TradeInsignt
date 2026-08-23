@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#080a0f" />
+  <meta name="description" content="TradeInsight Trader OS — a mobile-first trading psychology playbook, journal, mental check-in and execution discipline system." />
+  <meta property="og:title" content="TradeInsight — Trader OS" />
+  <meta property="og:description" content="Train the mind behind the trade with psychology playbooks, execution gates, journaling and daily discipline." />
+  <title>TradeInsight — Trader OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="glow glow-a" aria-hidden="true"></div>
+  <div class="glow glow-b" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="TradeInsight home">
+      <span class="brand-mark" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+      </span>
+      <span class="brand-copy"><strong>TRADE</strong><small>INSIGHT</small></span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#playbook">Learn</a>
+      <a href="#mind">Mind</a>
+      <a href="#journal">Journal</a>
+      <a href="#saved">Saved</a>
+    </nav>
+
+    <button class="search-trigger" type="button" id="search-trigger" aria-label="Search TradeInsight">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+      <span>Search</span>
+    </button>
+
+    <button class="menu-toggle" type="button" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <aside class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-head">
+      <span>Navigate</span>
+      <button type="button" id="menu-close" aria-label="Close menu">×</button>
+    </div>
+    <a href="#dashboard">Trader OS dashboard <span>01</span></a>
+    <a href="#playbook">Psychology playbook <span>02</span></a>
+    <a href="#mind">Mind lab <span>03</span></a>
+    <a href="#journal">Trade journal <span>04</span></a>
+    <a href="#saved">My playbook <span>05</span></a>
+    <a href="#sources">Sources <span>06</span></a>
+  </aside>
+
+  <main id="main">
+    <section class="hero section-shell" id="dashboard">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="pulse"></span> Trader OS · psychology before execution</div>
+        <h1>Think better.<br><span>Trade calmer.</span></h1>
+        <p class="hero-intro">A permanent, practical system built from filtered trading psychology insights—designed to sit beside your chart every day, not disappear after one podcast.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#daily-check">Start today’s check-in <span>↗</span></a>
+          <button class="btn btn-ghost" type="button" data-open-emergency>I'm losing control</button>
+        </div>
+        <div class="hero-proof">
+          <span><b>20</b> practical tools</span>
+          <span><b>01</b> trader score</span>
+          <span><b>07</b> day protocol</span>
+          <span><b>∞</b> repeat use</span>
+        </div>
+      </div>
+
+      <div class="os-panel reveal delay-1" aria-label="Trader OS dashboard summary">
+        <div class="os-topline">
+          <div><small>YOUR TRADER OS</small><strong id="greeting">Good session.</strong></div>
+          <div class="session-dot"><span></span> READY MODE</div>
+        </div>
+        <div class="os-score-grid">
+          <div class="score-orbit" aria-label="Trader score">
+            <svg viewBox="0 0 120 120" role="img" aria-label="Trader score gauge">
+              <circle class="orbit-track" cx="60" cy="60" r="48" />
+              <circle class="orbit-progress" id="score-ring" cx="60" cy="60" r="48" />
+            </svg>
+            <div><strong id="trader-score">72</strong><small>/100</small></div>
+          </div>
+          <div class="os-metrics">
+            <div><span>Mental state</span><strong id="dash-mental">Not checked</strong></div>
+            <div><span>Today's rule</span><strong id="dash-rule">Protect process, not ego.</strong></div>
+            <div><span>Training</span><strong id="dash-training">Day 1 / 7</strong></div>
+            <div><span>Trade gate</span><strong id="dash-gate">Not completed</strong></div>
+          </div>
+        </div>
+        <div class="micro-chart" aria-hidden="true">
+          <div class="price-line line-1"></div><div class="price-line line-2"></div><div class="price-line line-3"></div>
+          <div class="mini-candle up" style="--x:5%;--h:30px;--b:14px"></div>
+          <div class="mini-candle down" style="--x:14%;--h:42px;--b:18px"></div>
+          <div class="mini-candle up" style="--x:23%;--h:56px;--b:26px"></div>
+          <div class="mini-candle up" style="--x:32%;--h:46px;--b:20px"></div>
+          <div class="mini-candle down" style="--x:41%;--h:34px;--b:15px"></div>
+          <div class="mini-candle up" style="--x:50%;--h:62px;--b:30px"></div>
+          <div class="mini-candle down" style="--x:59%;--h:48px;--b:21px"></div>
+          <div class="mini-candle up" style="--x:68%;--h:72px;--b:34px"></div>
+          <div class="mini-candle up" style="--x:77%;--h:52px;--b:24px"></div>
+          <div class="mini-candle down" style="--x:86%;--h:38px;--b:16px"></div>
+          <div class="mini-candle up" style="--x:95%;--h:64px;--b:28px"></div>
+        </div>
+        <div class="os-footer">
+          <span><b id="journal-streak">0</b> day journal streak</span>
+          <span><b id="saved-count">0</b> saved insights</span>
+          <button type="button" data-scroll="#session-mode">Open session mode →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="signal-strip">
+      <div><small>CURATED</small><strong>Signal over noise</strong></div>
+      <div><small>EMOTIONAL</small><strong>State before setup</strong></div>
+      <div><small>REPEATABLE</small><strong>Process over outcome</strong></div>
+      <div class="strip-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="19"/><path d="M13 29l7-7 5 5 10-11"/></svg></div>
+    </section>
+
+    <section class="section section-shell" id="daily-check">
+      <div class="section-heading reveal">
+        <div><span class="section-index">01 / DAILY CHECK-IN</span><h2>Know your state<br>before the market tests it.</h2></div>
+        <p>The goal is not to feel nothing. It is to know what is driving the next click before you risk money.</p>
+      </div>
+
+      <div class="checkin-layout">
+        <article class="card mental-check reveal">
+          <div class="card-head"><div><span class="tag">MENTAL STATE</span><h3>How do you feel right now?</h3></div><span class="card-icon">◎</span></div>
+          <div class="mood-grid" id="mood-grid">
+            <button type="button" data-mood="calm" data-risk="12"><span>◌</span><strong>Calm</strong><small>Clear & patient</small></button>
+            <button type="button" data-mood="fear" data-risk="72"><span>△</span><strong>Fearful</strong><small>Avoiding loss</small></button>
+            <button type="button" data-mood="greed" data-risk="82"><span>↗</span><strong>Greedy</strong><small>Chasing more</small></button>
+            <button type="button" data-mood="anger" data-risk="91"><span>⚡</span><strong>Angry</strong><small>Need to win back</small></button>
+            <button type="button" data-mood="euphoria" data-risk="76"><span>✦</span><strong>Overconfident</strong><small>Rules feel optional</small></button>
+            <button type="button" data-mood="tired" data-risk="64"><span>☾</span><strong>Tired</strong><small>Low attention</small></button>
+          </div>
+          <div class="mental-result" id="mental-result" aria-live="polite">
+            <div class="risk-meter"><span id="risk-fill"></span></div>
+            <div><small>EMOTIONAL RISK</small><strong id="risk-label">Choose your current state</strong><p id="risk-action">Your recommended action will appear here.</p></div>
+          </div>
+        </article>
+
+        <article class="card today-rule reveal delay-1">
+          <div class="rule-number" id="rule-number">RULE 01</div>
+          <span class="tag">ONE RULE TODAY</span>
+          <h3 id="rule-title">Protect process, not ego.</h3>
+          <p id="rule-copy">A good trade is one that followed your system. A profitable rule-break is still bad execution because it trains the wrong behavior.</p>
+          <div class="rule-actions">
+            <button class="save-pill" type="button" data-save-insight="daily-rule" data-title="Protect process, not ego.">☆ Save rule</button>
+            <button class="text-button" type="button" id="next-rule">Next rule →</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="playbook">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <div><span class="section-index">02 / PODCAST → PLAYBOOK</span><h2>Listen once.<br>Use the lesson forever.</h2></div>
+          <p>Long-form ideas are converted into concise decision rules, emotional triggers, market examples and exercises.</p>
+        </div>
+
+        <div class="search-inline reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+          <input type="search" id="playbook-search" placeholder="Search fear, FOMO, risk, patience, structure…" autocomplete="off" />
+          <kbd>⌘ K</kbd>
+        </div>
+        <div class="filter-row reveal" id="playbook-filters">
+          <button class="filter active" type="button" data-filter="all">All</button>
+          <button class="filter" type="button" data-filter="mind">Mind</button>
+          <button class="filter" type="button" data-filter="risk">Risk</button>
+          <button class="filter" type="button" data-filter="execution">Execution</button>
+          <button class="filter" type="button" data-filter="recovery">Recovery</button>
+          <button class="filter" type="button" data-filter="structure">Structure</button>
+        </div>
+
+        <div class="playbook-grid" id="playbook-grid">
+          <article class="insight-card featured" data-category="mind execution" data-search="fear emotion identity probability process execution uncertainty">
+            <div class="insight-visual brain-chart" aria-hidden="true"><span class="orbit o1"></span><span class="orbit o2"></span><span class="core">MIND</span><i class="node n1"></i><i class="node n2"></i><i class="node n3"></i></div>
+            <div class="insight-body"><div class="meta"><span>01 · MIND</span><button class="bookmark" type="button" data-save-insight="mind-probability" data-title="You are not trading certainty">☆</button></div><h3>You are not trading certainty.</h3><p>Fear intensifies when the mind demands a guaranteed outcome from a probabilistic environment. Your job is to execute an edge—not force the market to confirm your identity.</p><div class="takeaway"><small>PRACTICAL RULE</small><strong>Define risk before entry. Accept the loss before clicking.</strong></div><div class="source-chip">Distilled from Source 001 · Rande Howell</div></div>
+          </article>
+
+          <article class="insight-card" data-category="execution mind" data-search="fomo chase patience missed move entry wait confirmation">
+            <div class="insight-visual fomo-chart" aria-hidden="true"><span class="price"></span><span class="entry-dot"></span><span class="fomo-arrow">FOMO</span><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="insight-body"><div class="meta"><span>02 · EXECUTION</span><button class="bookmark" type="button" data-save-insight="fomo-patience" data-title="A missed trade costs zero">☆</button></div><h3>A missed trade costs zero.</h3><p>FOMO converts observation into urgency. The moment you feel “I have to get in,” the trade is already influencing your nervous system.</p><div class="takeaway"><small>REPLACEMENT BEHAVIOR</small><strong>Say: “Another setup will come. I do not pay for lateness.”</strong></div></div>
+          </article>
+
+          <article class="insight-card" data-category="risk execution" data-search="stop loss risk position sizing invalidation moving stop hope">
+            <div class="insight-visual rr-visual" aria-hidden="true"><span class="loss-zone">-1R</span><span class="entry-line">ENTRY</span><span class="win-zone">+2R</span></div>
+            <div class="insight-body"><div class="meta"><span>03 · RISK</span><button class="bookmark" type="button" data-save-insight="risk-acceptance" data-title="Your stop is a decision made while calm">☆</button></div><h3>Your stop is a calm decision.</h3><p>Moving a stop after entry often means emotion has replaced invalidation logic. Risk belongs to the plan, not to hope.</p><div class="takeaway"><small>PRACTICAL RULE</small><strong>If invalidation has not changed, the stop does not move.</strong></div></div>
+          </article>
+
+          <article class="insight-card" data-category="recovery mind" data-search="revenge loss anger recover pause reset next trade">
+            <div class="insight-visual cycle-visual" aria-hidden="true"><span>LOSS</span><i>→</i><span>ANGER</span><i>→</i><span>SIZE ↑</span><i>→</i><span>MORE LOSS</span></div>
+            <div class="insight-body"><div class="meta"><span>04 · RECOVERY</span><button class="bookmark" type="button" data-save-insight="revenge-cycle" data-title="The market does not know what you lost">☆</button></div><h3>The market does not know what you lost.</h3><p>Revenge trading is an attempt to repair emotion with P&L. That makes the next position responsible for your self-image.</p><div class="takeaway"><small>INTERRUPT</small><strong>After an emotional loss, no new order until the reset is complete.</strong></div></div>
+          </article>
+
+          <article class="insight-card" data-category="structure execution" data-search="market structure higher high higher low break shift liquidity sweep">
+            <div class="insight-visual structure-chart" aria-hidden="true"><svg viewBox="0 0 300 140"><path class="grid" d="M0 35H300M0 70H300M0 105H300"/><path class="structure" d="M12 112 L50 72 L84 92 L126 44 L162 70 L208 25 L245 52 L288 18"/><circle cx="50" cy="72" r="4"/><circle cx="126" cy="44" r="4"/><circle cx="208" cy="25" r="4"/></svg><span>HH</span><span>HL</span><span>BOS</span></div>
+            <div class="insight-body"><div class="meta"><span>05 · STRUCTURE</span><button class="bookmark" type="button" data-save-insight="structure-patience" data-title="Structure gives patience a location">☆</button></div><h3>Structure gives patience a location.</h3><p>A trader with no defined confirmation reacts to every candle. Structure turns “wait” into an observable condition.</p><div class="takeaway"><small>PROCESS</small><strong>Predefine what must break, hold or retest before you act.</strong></div></div>
+          </article>
+
+          <article class="insight-card" data-category="mind recovery" data-search="winner euphoria overconfidence winning streak discipline risk">
+            <div class="insight-visual gauge-visual" aria-hidden="true"><div class="gauge"><span></span></div><small>CONFIDENCE</small><strong>≠ CERTAINTY</strong></div>
+            <div class="insight-body"><div class="meta"><span>06 · MIND</span><button class="bookmark" type="button" data-save-insight="euphoria" data-title="A winning streak does not increase certainty">☆</button></div><h3>A winning streak does not increase certainty.</h3><p>Euphoria can be as dangerous as fear. The brain starts treating recent wins as evidence that normal risk controls are unnecessary.</p><div class="takeaway"><small>GUARDRAIL</small><strong>Keep risk rules unchanged after both wins and losses.</strong></div></div>
+          </article>
+        </div>
+        <div class="empty-state" id="playbook-empty" hidden>No matching insight yet. Try a broader search.</div>
+      </div>
+    </section>
+
+    <section class="section section-shell" id="candles">
+      <div class="section-heading reveal">
+        <div><span class="section-index">03 / CANDLE PSYCHOLOGY</span><h2>Read the behavior<br>behind the candle.</h2></div>
+        <p>Candles do not predict the future by themselves. They record the struggle between acceptance, rejection and urgency.</p>
+      </div>
+
+      <div class="candle-grid">
+        <article class="candle-card reveal"><div class="candle-stage"><div class="big-candle rejection"><i></i><b></b></div><span class="level"></span></div><div><span class="tag">REJECTION WICK</span><h3>Price visited. The market refused.</h3><p>Long upper wick: buyers pushed upward, sellers absorbed or overwhelmed them, and late buyers may now be trapped.</p><small>Ask: was meaningful liquidity or structure tested?</small></div></article>
+        <article class="candle-card reveal delay-1"><div class="candle-stage"><div class="big-candle engulf-a"><i></i><b></b></div><div class="big-candle engulf-b"><i></i><b></b></div></div><div><span class="tag">ENGULFING</span><h3>Control shifted quickly.</h3><p>A strong body overruns the previous range. Useful only when location and context support the story.</p><small>Ask: what did the expansion invalidate?</small></div></article>
+        <article class="candle-card reveal delay-2"><div class="candle-stage squeeze"><div class="big-candle inside-a"><i></i><b></b></div><div class="big-candle inside-b"><i></i><b></b></div></div><div><span class="tag">INSIDE BAR</span><h3>Compression before commitment.</h3><p>Range contracts. Both sides are waiting. The psychological mistake is predicting direction before evidence arrives.</p><small>Ask: what would confirm expansion?</small></div></article>
+        <article class="candle-card reveal"><div class="candle-stage"><div class="big-candle displacement"><i></i><b></b></div><span class="gap-mark">IMBALANCE</span></div><div><span class="tag">DISPLACEMENT</span><h3>Urgency entered the auction.</h3><p>A large impulsive candle can reveal aggressive repricing. Chasing it can create poor location even when direction is correct.</p><small>Ask: can I wait for structure instead of emotion?</small></div></article>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="mind">
+      <div class="section-shell">
+        <div class="section-heading reveal"><div><span class="section-index">04 / MIND LAB</span><h2>Name the emotion.<br>Interrupt the behavior.</h2></div><p>Choose the problem that is strongest right now. TradeInsight translates the state into a corrective protocol.</p></div>
+        <div class="mind-layout">
+          <div class="state-tabs reveal" role="tablist" aria-label="Emotional states">
+            <button type="button" class="state-tab active" data-state="fear"><span>△</span><div><strong>Fear</strong><small>Hesitation · early exits</small></div></button>
+            <button type="button" class="state-tab" data-state="greed"><span>↗</span><div><strong>Greed / FOMO</strong><small>Chasing · oversizing</small></div></button>
+            <button type="button" class="state-tab" data-state="revenge"><span>⚡</span><div><strong>Revenge</strong><small>Anger · forced trades</small></div></button>
+            <button type="button" class="state-tab" data-state="euphoria"><span>✦</span><div><strong>Euphoria</strong><small>Overconfidence · rule drift</small></div></button>
+          </div>
+          <article class="state-panel card reveal delay-1" id="state-panel">
+            <div class="state-panel-top"><span class="tag" id="state-tag">FEAR RESPONSE</span><span class="severity">RISK <b id="state-risk">HIGH</b></span></div>
+            <h3 id="state-title">Fear tries to turn uncertainty into avoidance.</h3>
+            <p id="state-description">You may hesitate on valid setups, close winners too early or widen your criteria until no trade feels safe.</p>
+            <div class="state-columns"><div><small>TRIGGER</small><strong id="state-trigger">Recent loss / fear of being wrong</strong></div><div><small>REPLACEMENT</small><strong id="state-replacement">Risk small enough that the planned stop is emotionally tolerable.</strong></div></div>
+            <div class="state-action"><span>01</span><p id="state-action">Reduce decision pressure. Review setup criteria. Accept the exact predefined loss before entering.</p></div>
+            <button class="btn btn-primary compact" type="button" data-open-emergency>Open 60-second reset</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-shell" id="trade-gate">
+      <div class="section-heading reveal"><div><span class="section-index">05 / BEFORE YOU ENTER</span><h2>Your trade gate.<br>No checklist, no click.</h2></div><p>Profit is not permission. The trade only passes when structure, risk and mental state all satisfy the plan.</p></div>
+      <div class="gate-layout">
+        <article class="card gate-card reveal">
+          <div class="gate-top"><div><span class="tag">EXECUTION GATE</span><h3>Pre-trade confirmation</h3></div><div class="gate-score"><strong id="gate-count">0</strong><small>/ 8</small></div></div>
+          <div class="gate-list" id="gate-list">
+            <label><input type="checkbox" data-gate><span class="check-ui"></span><div><strong>Valid setup</strong><small>The setup matches my written model.</small></div></label>
+            <label><input type="checkbox" data-gate><span class="check-ui"></span><div><strong>Entry confirmed</strong><small>I am not entering only because price is moving.</small></div></label>
+            <label><input type="checkbox" data-gate><span class="check-ui"></span><div><strong>Risk predetermined</strong><small>Position size is known before entry.</small></div></label>
+            <label><input type="checkbox" data-gate><span class="check-ui"></span><div><strong>Stop placed</strong><small>Invalidation is technical, not emotional.</small></div></label>
+            <label><input type="checkbox" data-gate><span class="check-ui"></span><div><strong>Reward acceptable</strong><small>The opportunity justifies the planned risk.</small></div></label>
+            <label><input type="checkbox" data-gate><span class="check-ui"></span><div><strong>Emotion controlled</strong><small>I can accept either outcome.</small></div></label>
+            <label><input type="checkbox" data-gate><span class="check-ui"></span><div><strong>Not revenge trading</strong><small>This trade is independent from the last result.</small></div></label>
+            <label><input type="checkbox" data-gate><span class="check-ui"></span><div><strong>Not FOMO</strong><small>I would take this setup even if I had not watched the move.</small></div></label>
+          </div>
+          <div class="gate-result" id="gate-result"><span></span><div><small>STATUS</small><strong>NOT READY</strong></div></div>
+        </article>
+
+        <article class="card trader-score-card reveal delay-1">
+          <span class="tag">TRADER SCORE</span><h3>Measure execution—not only P&L.</h3><p>Rate the process you can control. A losing trade can still be excellent execution.</p>
+          <div class="score-sliders">
+            <label><span>Discipline <b id="discipline-value">70</b></span><input id="discipline" type="range" min="0" max="100" value="70"></label>
+            <label><span>Risk control <b id="risk-value">80</b></span><input id="risk-control" type="range" min="0" max="100" value="80"></label>
+            <label><span>Setup quality <b id="setup-value">75</b></span><input id="setup-quality" type="range" min="0" max="100" value="75"></label>
+            <label><span>Emotional stability <b id="emotion-value">60</b></span><input id="emotion-stability" type="range" min="0" max="100" value="60"></label>
+            <label><span>Rule adherence <b id="rules-value">78</b></span><input id="rule-adherence" type="range" min="0" max="100" value="78"></label>
+          </div>
+          <div class="score-summary"><strong id="process-score">73</strong><span>/100</span><p id="score-copy">Solid process. Tighten emotional stability before increasing risk.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="mistakes">
+      <div class="section-shell">
+        <div class="section-heading reveal"><div><span class="section-index">06 / MISTAKE LIBRARY</span><h2>Find the behavior.<br>Replace the behavior.</h2></div><p>Each mistake is mapped as trigger → thought → action → consequence → replacement behavior.</p></div>
+        <div class="mistake-scroller" id="mistake-scroller">
+          <button class="mistake-chip active" type="button" data-mistake="fomo">FOMO</button><button class="mistake-chip" type="button" data-mistake="revenge">Revenge</button><button class="mistake-chip" type="button" data-mistake="stop">Moving SL</button><button class="mistake-chip" type="button" data-mistake="overtrade">Overtrading</button><button class="mistake-chip" type="button" data-mistake="oversize">Oversizing</button><button class="mistake-chip" type="button" data-mistake="earlyexit">Early exit</button><button class="mistake-chip" type="button" data-mistake="lateentry">Late entry</button><button class="mistake-chip" type="button" data-mistake="hesitation">Hesitation</button><button class="mistake-chip" type="button" data-mistake="strategy">Strategy hopping</button>
+        </div>
+        <article class="mistake-map reveal" id="mistake-map">
+          <div><small>TRIGGER</small><strong id="mistake-trigger">Price moves fast without me</strong></div><span>→</span><div><small>THOUGHT</small><strong id="mistake-thought">“I’m going to miss it.”</strong></div><span>→</span><div><small>ACTION</small><strong id="mistake-action">Chase entry</strong></div><span>→</span><div><small>CONSEQUENCE</small><strong id="mistake-consequence">Poor location · emotional SL</strong></div><span>→</span><div class="replacement"><small>REPLACEMENT</small><strong id="mistake-replacement">Miss the trade. Protect the process.</strong></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-shell" id="diagnostic">
+      <div class="section-heading reveal"><div><span class="section-index">07 / PERSONAL LEARNING PATH</span><h2>What should you<br>work on next?</h2></div><p>Choose the recurring problem. TradeInsight gives you a focused training path instead of more random information.</p></div>
+      <div class="diagnostic-card card reveal">
+        <div class="diagnostic-options" id="diagnostic-options">
+          <button type="button" data-problem="hesitate"><span>01</span>I hesitate on valid setups</button>
+          <button type="button" data-problem="overtrade"><span>02</span>I overtrade</button>
+          <button type="button" data-problem="revenge"><span>03</span>I revenge trade</button>
+          <button type="button" data-problem="fear"><span>04</span>I fear losing</button>
+          <button type="button" data-problem="early"><span>05</span>I exit winners early</button>
+          <button type="button" data-problem="chase"><span>06</span>I chase price</button>
+          <button type="button" data-problem="switch"><span>07</span>I keep changing strategy</button>
+        </div>
+        <div class="diagnostic-result" id="diagnostic-result"><span class="tag">YOUR PATH</span><h3>Choose your biggest recurring problem.</h3><p>Your recommended focus and practical exercise will appear here.</p><div class="path-progress"><span id="path-progress-bar"></span></div><small id="path-progress-label">0% started</small></div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="protocol">
+      <div class="section-shell">
+        <div class="section-heading reveal"><div><span class="section-index">08 / 7-DAY PROTOCOL</span><h2>Train psychology<br>like a skill.</h2></div><p>Seven small repetitions are more useful than one motivational burst. Progress is stored on this device.</p></div>
+        <div class="protocol-grid" id="protocol-grid">
+          <button type="button" data-day="1"><span>DAY 01</span><strong>Name the emotion</strong><small>Record state before every session.</small><i>✓</i></button>
+          <button type="button" data-day="2"><span>DAY 02</span><strong>Pre-accept the loss</strong><small>Write the exact planned loss before entry.</small><i>✓</i></button>
+          <button type="button" data-day="3"><span>DAY 03</span><strong>One A+ setup</strong><small>Ignore every setup outside your model.</small><i>✓</i></button>
+          <button type="button" data-day="4"><span>DAY 04</span><strong>Interrupt FOMO</strong><small>Let one late move go without chasing.</small><i>✓</i></button>
+          <button type="button" data-day="5"><span>DAY 05</span><strong>Protect the stop</strong><small>No emotional stop movement.</small><i>✓</i></button>
+          <button type="button" data-day="6"><span>DAY 06</span><strong>Score execution</strong><small>Rate process before checking P&L.</small><i>✓</i></button>
+          <button type="button" data-day="7"><span>DAY 07</span><strong>Review the pattern</strong><small>Identify your strongest recurring trigger.</small><i>✓</i></button>
+        </div>
+        <div class="protocol-progress reveal"><div><span id="protocol-progress"></span></div><strong><b id="protocol-count">0</b>/7 complete</strong><button type="button" id="protocol-reset">Reset protocol</button></div>
+      </div>
+    </section>
+
+    <section class="section section-shell" id="session-mode">
+      <div class="section-heading reveal"><div><span class="section-index">09 / TRADING SESSION MODE</span><h2>Keep one calm screen<br>beside TradingView.</h2></div><p>Reduce information during execution. Switch between pre-market, live-market and post-market routines.</p></div>
+      <div class="session-card card reveal">
+        <div class="session-tabs" role="tablist"><button class="active" type="button" data-session="pre">Pre-market</button><button type="button" data-session="during">During market</button><button type="button" data-session="post">Post-market</button></div>
+        <div class="session-content" id="session-content">
+          <div class="session-quote"><small>PRE-MARKET RULE</small><strong>My job is to prepare conditions—not predict candles.</strong></div>
+          <div class="session-items"><label><input type="checkbox"><span></span>Bias defined</label><label><input type="checkbox"><span></span>Key structure marked</label><label><input type="checkbox"><span></span>Risk limit known</label><label><input type="checkbox"><span></span>Mental state checked</label></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="journal">
+      <div class="section-shell">
+        <div class="section-heading reveal"><div><span class="section-index">10 / PSYCHOLOGY JOURNAL</span><h2>Record the trader,<br>not only the trade.</h2></div><p>Keep the journal lightweight enough to use. Entries stay in your browser on this device.</p></div>
+        <div class="journal-layout">
+          <form class="journal-form card reveal" id="journal-form">
+            <div class="form-row"><label>Setup type<input id="journal-setup" required placeholder="e.g. M15 structure shift + retrace"></label><label>Result<select id="journal-result"><option>Win</option><option>Loss</option><option>Break-even</option><option>No trade</option></select></label></div>
+            <div class="form-row"><label>Emotion before<select id="emotion-before"><option>Calm</option><option>Fearful</option><option>Greedy</option><option>Angry</option><option>Overconfident</option><option>Tired</option></select></label><label>Emotion after<select id="emotion-after"><option>Calm</option><option>Relieved</option><option>Frustrated</option><option>Excited</option><option>Angry</option><option>Neutral</option></select></label></div>
+            <label>Did you follow your rules?<select id="journal-rules"><option value="yes">Yes — fully</option><option value="mostly">Mostly</option><option value="no">No</option></select></label>
+            <label>Lesson<textarea id="journal-lesson" rows="4" placeholder="What should the next version of you repeat or avoid?"></textarea></label>
+            <button class="btn btn-primary" type="submit">Save journal entry</button>
+          </form>
+          <div class="journal-history reveal delay-1"><div class="history-head"><div><span class="tag">RECENT ENTRIES</span><h3>Your behavior history</h3></div><button type="button" id="clear-journal">Clear</button></div><div id="journal-list" class="journal-list"><div class="empty-journal">No entries yet. Your first review will appear here.</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-shell" id="saved">
+      <div class="section-heading reveal"><div><span class="section-index">11 / MY PLAYBOOK</span><h2>Save only what<br>you need to remember.</h2></div><p>Bookmark principles and rules. Your personal playbook becomes a smaller, more useful version of the full library.</p></div>
+      <div class="saved-grid" id="saved-grid"><div class="saved-empty">No saved insights yet. Tap ☆ on any rule or playbook card.</div></div>
+    </section>
+
+    <section class="section dark-section" id="sources">
+      <div class="section-shell">
+        <div class="section-heading reveal"><div><span class="section-index">12 / SOURCE TRANSPARENCY</span><h2>The source stays visible.<br>The lesson stays usable.</h2></div><p>Video is optional. The product is the filtered written playbook. When you want context, the original source plays inside TradeInsight.</p></div>
+        <div class="source-grid">
+          <article class="source-card reveal"><div class="source-number">001</div><div><span class="tag">PRIMARY PSYCHOLOGY SOURCE</span><h3>Rande Howell — trading psychology conversation</h3><p>Used as the primary source for the psychology synthesis: emotional regulation, probability, identity, fear and disciplined execution.</p><button class="btn btn-ghost compact" type="button" data-video="ICeHYLSXgYI" data-video-title="Rande Howell — Trading Psychology">Play source inside website</button></div></article>
+          <article class="source-card reveal delay-1"><div class="source-number">002</div><div><span class="tag">CURATED SOURCE</span><h3>TradeInsight Source 002</h3><p>Retained as an original reference. Specific written claims are only added to the playbook when they have been verified from the source.</p><button class="btn btn-ghost compact" type="button" data-video="znSRU984kc8" data-video-title="TradeInsight Source 002">Play source inside website</button></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="emergency-fab" type="button" data-open-emergency aria-label="Open emotional emergency reset"><span>!</span><small>RESET</small></button>
+
+  <nav class="mobile-bottom-nav" aria-label="Mobile quick navigation">
+    <a href="#dashboard"><svg viewBox="0 0 24 24"><path d="M4 13h6V4H4v9Zm10 7h6V11h-6v9ZM4 20h6v-3H4v3Zm10-13h6V4h-6v3Z"/></svg><span>Home</span></a>
+    <a href="#playbook"><svg viewBox="0 0 24 24"><path d="M5 4h12a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2V4Z"/><path d="M7 20a2 2 0 0 1 0-4h12M9 8h6"/></svg><span>Learn</span></a>
+    <a href="#mind"><svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 0-7 7c0 2.7 1.5 5 3.6 6.2V21h6.8v-4.8A7 7 0 0 0 12 3Z"/><path d="M9 11h6"/></svg><span>Mind</span></a>
+    <a href="#journal"><svg viewBox="0 0 24 24"><path d="M6 4h12v16H6zM9 8h6M9 12h6M9 16h4"/></svg><span>Journal</span></a>
+    <a href="#saved"><svg viewBox="0 0 24 24"><path d="M7 4h10v16l-5-3-5 3V4Z"/></svg><span>Saved</span></a>
+  </nav>
+
+  <dialog class="emergency-modal" id="emergency-modal">
+    <div class="emergency-card">
+      <button class="modal-close" type="button" data-close-emergency aria-label="Close reset">×</button>
+      <span class="danger-label">EMOTIONAL INTERRUPT</span>
+      <h2>Stop clicking.</h2>
+      <p>The goal is not to recover money right now. The goal is to recover decision quality.</p>
+      <div class="breath-orb" id="breath-orb"><div><strong id="breath-count">60</strong><small id="breath-label">seconds</small></div></div>
+      <div class="breath-instruction" id="breath-instruction">Press start. Breathe in for 4, hold for 2, out for 6.</div>
+      <button class="btn btn-primary" type="button" id="breath-start">Start 60-second reset</button>
+      <div class="emergency-steps"><div><span>01</span><strong>No new order.</strong></div><div><span>02</span><strong>Leave the chart during the timer.</strong></div><div><span>03</span><strong>Recheck setup and risk after your body settles.</strong></div><div><span>04</span><strong>If urgency remains, walk away.</strong></div></div>
+    </div>
+  </dialog>
+
+  <dialog class="video-modal" id="video-modal">
+    <div class="video-dialog">
+      <div class="video-head"><div><small>ORIGINAL SOURCE</small><strong id="video-title">Source</strong></div><button type="button" data-close-video aria-label="Close video">×</button></div>
+      <div class="video-frame"><iframe id="video-frame" title="Embedded source video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <p>The source is optional. Close this player to return to the written playbook.</p>
+    </div>
+  </dialog>
+
+  <dialog class="search-modal" id="search-modal">
+    <div class="search-dialog">
+      <div class="search-modal-head"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><input type="search" id="global-search" placeholder="Search TradeInsight…" autofocus><button type="button" data-close-search>ESC</button></div>
+      <div id="global-results" class="global-results"><p>Try “FOMO”, “stop loss”, “fear”, “journal” or “structure”.</p></div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <div><a class="brand" href="#top"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy"><strong>TRADE</strong><small>INSIGHT</small></span></a><p>Train the mind behind the trade.</p></div>
+    <p>Educational content only. Not financial advice. © <span id="year"></span> TradeInsight.</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
