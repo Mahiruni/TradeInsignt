@@ -19,6 +19,9 @@ A mobile-first trading psychology and execution-discipline product built from cu
 - Psychology-first trade journal
 - Saved "My Playbook" library
 - In-site embedded source playback
-- Responsive mobile bottom navigation and emergency reset
+- Native-style mobile shell with a fixed glassmorphic header
+- X-style edge-to-edge mobile tab bar with active-section state
+- Mobile-safe form sizing and touch interaction
+- Emergency reset action above the tab bar
 
 All personal state is stored locally in the browser. No account or backend is required for this release.
