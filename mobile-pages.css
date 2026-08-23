@@ -1,0 +1,112 @@
+/* TradeInsight mobile screen router: each product area behaves as its own app page. */
+@media (max-width: 760px) {
+  html,
+  body {
+    height: 100%;
+    height: 100dvh;
+    overflow: hidden !important;
+    overscroll-behavior: none;
+  }
+
+  body {
+    min-height: 100dvh !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* The application viewport lives between the fixed header and fixed X-style tab bar. */
+  main {
+    position: fixed;
+    z-index: 1;
+    top: calc(var(--app-header-h) + env(safe-area-inset-top));
+    right: 0;
+    bottom: calc(var(--app-tabbar-h) + env(safe-area-inset-bottom));
+    left: 0;
+    width: 100%;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: hidden !important;
+    background: transparent;
+  }
+
+  main > .signal-strip {
+    display: none !important;
+  }
+
+  /* Every top-level section with an id is a standalone screen. */
+  main > section[id] {
+    display: none !important;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    min-height: 0 !important;
+    margin: 0 !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    touch-action: pan-y;
+  }
+
+  main > section[id]::-webkit-scrollbar {
+    display: none;
+  }
+
+  main > section[id].is-page-active {
+    display: block !important;
+    animation: mobilePageIn .18s ease-out both;
+  }
+
+  main > #dashboard.is-page-active {
+    display: flex !important;
+  }
+
+  /* Give normal section screens app-like top/bottom breathing room. */
+  main > .section[id].is-page-active,
+  main > .dark-section[id].is-page-active {
+    padding-top: 22px !important;
+    padding-bottom: 28px !important;
+  }
+
+  /* Dashboard fills the screen as a home screen instead of becoming a landing page in a long document. */
+  main > #dashboard {
+    padding-top: 16px !important;
+    padding-bottom: 24px !important;
+  }
+
+  /* The header and bottom navigation are now the app chrome, not part of document flow. */
+  .site-header {
+    position: fixed !important;
+    top: 0 !important;
+  }
+
+  .mobile-bottom-nav {
+    position: fixed !important;
+    bottom: 0 !important;
+  }
+
+  .site-footer {
+    display: none !important;
+  }
+
+  /* Drawer remains above the active page and below/above app chrome as already designed. */
+  .mobile-menu {
+    overscroll-behavior: contain;
+  }
+
+  /* Screen transition without creating scroll movement between sections. */
+  @keyframes mobilePageIn {
+    from { opacity: .55; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+  main > section[id].is-page-active {
+    animation: none;
+  }
+}
